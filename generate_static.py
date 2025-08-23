@@ -6,26 +6,32 @@ Script para gerar arquivos estáticos do portfólio Flask para GitHub Pages
 import os
 import shutil
 from app import create_app
+import markdown
 
 app = create_app()
 
 
 def generate_static_site():
-    # Gerar HTML dos arquivos Markdown dos indicadores
-    import markdown
+    """Gerar HTML dos arquivos Markdown dos indicadores"""
+    output_dir = "dist"
     docs_src = "docs"
-    docs_dest = os.path.join("dist", "docs")
+    docs_dest = os.path.join(output_dir, "docs")
+
+    if os.path.exists(output_dir):
+        shutil.rmtree(output_dir)
+
+    os.makedirs(output_dir)
     os.makedirs(docs_dest, exist_ok=True)
+
     for filename in os.listdir(docs_src):
         if filename.startswith("indicador") and filename.endswith(".md"):
             md_path = os.path.join(docs_src, filename)
             html_name = filename.replace(".md", ".html")
             with open(md_path, "r", encoding="utf-8") as f:
                 lines = f.readlines()
-            # Ignora a primeira linha (título)
-            md_content = "".join(lines[1:])
+
+            md_content = "".join(lines[1:])  # ignora titulo
             html_content = markdown.markdown(md_content)
-            # Adiciona um template simples para modal
             html_template = f"""
             <div class='modal-content-indicador'>
             {html_content}
@@ -33,33 +39,25 @@ def generate_static_site():
             """
             with open(os.path.join(docs_dest, html_name), "w", encoding="utf-8") as f:
                 f.write(html_template)
-    print("Arquivos HTML dos indicadores gerados em dist/docs/")
-    """Gera os arquivos estáticos do portfólio"""
 
-    # Criar diretório de saída
-    output_dir = "dist"
-    if os.path.exists(output_dir):
-        shutil.rmtree(output_dir)
-    os.makedirs(output_dir)
+    print("Arquivos HTML dos indicadores gerados em dist/docs/")
 
     # Configurar Flask para modo de produção
     app.config["SERVER_NAME"] = None  # Remover para evitar problemas no GitHub Pages
     app.config["PREFERRED_URL_SCHEME"] = "https"
 
+    # Gerar página principal
     with app.app_context():
-        # Gerar página principal
         with app.test_client() as client:
             response = client.get("/")
 
             if response.status_code == 200:
                 html_content = response.get_data(as_text=True)
-                # Corrigir caminhos para funcionar como site estático
+
                 html_content = html_content.replace('href="/static/', 'href="./static/')
                 html_content = html_content.replace('src="/static/', 'src="./static/')
 
-                with open(
-                    os.path.join(output_dir, "index.html"), "w", encoding="utf-8"
-                ) as f:
+                with open(os.path.join(output_dir, "index.html"), "w", encoding="utf-8") as f:
                     f.write(html_content)
                 print("index.html gerado com sucesso")
             else:
@@ -71,6 +69,7 @@ def generate_static_site():
     for filename in os.listdir(templates_src):
         if filename.endswith('.html'):
             shutil.copy(os.path.join(templates_src, filename), os.path.join(output_dir, filename))
+
     print("Arquivos HTML copiados de app/templates para dist")
 
     # Copiar arquivos estáticos de app/static
@@ -91,5 +90,6 @@ def generate_static_site():
 
 if __name__ == "__main__":
     success = generate_static_site()
+
     if not success:
         exit(1)
