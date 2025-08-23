@@ -11,6 +11,29 @@ app = create_app()
 
 
 def generate_static_site():
+    # Gerar HTML dos arquivos Markdown dos indicadores
+    import markdown
+    docs_src = "docs"
+    docs_dest = os.path.join("dist", "docs")
+    os.makedirs(docs_dest, exist_ok=True)
+    for filename in os.listdir(docs_src):
+        if filename.startswith("indicador") and filename.endswith(".md"):
+            md_path = os.path.join(docs_src, filename)
+            html_name = filename.replace(".md", ".html")
+            with open(md_path, "r", encoding="utf-8") as f:
+                lines = f.readlines()
+            # Ignora a primeira linha (título)
+            md_content = "".join(lines[1:])
+            html_content = markdown.markdown(md_content)
+            # Adiciona um template simples para modal
+            html_template = f"""
+            <div class='modal-content-indicador'>
+            {html_content}
+            </div>
+            """
+            with open(os.path.join(docs_dest, html_name), "w", encoding="utf-8") as f:
+                f.write(html_template)
+    print("Arquivos HTML dos indicadores gerados em dist/docs/")
     """Gera os arquivos estáticos do portfólio"""
 
     # Criar diretório de saída

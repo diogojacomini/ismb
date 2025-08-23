@@ -881,9 +881,9 @@
                 'F': 'Indicador F'
             };
             const modal = document.getElementById('modalSaibaMais');
-            // Busca markdown convertido em HTML do backend
+            // Busca HTML estático gerado em docs/indicadorX.html
             try {
-                const resp = await fetch(`/saibamais/${letra}`);
+                const resp = await fetch(`docs/indicador${letra}.html`);
                 if (!resp.ok) throw new Error('Erro ao buscar conteúdo');
                 const html = await resp.text();
                 modal.innerHTML = `
