@@ -5,7 +5,9 @@ Script para gerar arquivos estáticos do portfólio Flask para GitHub Pages
 
 import os
 import shutil
-from app import app
+from app import create_app
+
+app = create_app()
 
 
 def generate_static_site():
