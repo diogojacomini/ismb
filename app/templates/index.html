@@ -705,12 +705,12 @@
         }
         // Busca dados do índice principal via API
         async function fetchIndice() {
-            const resp = await fetch('http://localhost:8000/api/indice');
+            const resp = await fetch('https://yeqfdw4z31.execute-api.us-east-1.amazonaws.com/ismb1/dados?indice=ismb');
             return await resp.json();
         }
         // Busca dados de um indicador via API
         async function fetchIndicador(nome) {
-            const resp = await fetch(`http://localhost:8000/api/indicador/${nome}`);
+            const resp = await fetch(`https://yeqfdw4z31.execute-api.us-east-1.amazonaws.com/ismb1/dados?indice=${nome}`);
             return await resp.json();
         }
         // Atualiza o gauge e gráfico principal com dados reais
@@ -812,9 +812,9 @@
             // Atualiza sentimento no card
             const sentCard = document.getElementById('sentimento'+nome+'-card');
             if(sentCard) sentCard.innerText = sentimento;
-            // Atualiza variação e cor
+            // Atualiza variação e cor (arredondado para 1 casa decimal)
             const varElem = document.getElementById(varId);
-            varElem.innerText = (variacao>=0?'+':'')+variacao;
+            varElem.innerText = (variacao>=0?'+':'')+variacao.toFixed(1);
             varElem.style.color = variacao>=0 ? '#43a047' : '#e53935';
             // Gráfico
             new Chart(document.getElementById(canvasId).getContext('2d'), {
