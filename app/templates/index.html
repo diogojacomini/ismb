@@ -507,7 +507,7 @@
         <div class="hero">
             <div class="hero-title">ISMB</div>
             <div class="hero-desc">
-                 ISMB (Índice de Sentimento do Mercado Brasileiro) é um indicador analítico que mede o humor do mercado nacional com base em dados objetivos e comportamentais. Utilizando uma combinação de métricas financeiras, variações de ativos, volume de negociação e sentimento digital, o índice classifica diariamente o sentimento geral do mercado em cinco categorias: Medo Extremo, Medo, Neutro, Ganância e Ganância Extrema.
+                 ISMB (Índice de Sentimento do Mercado Brasileiro) é um índice analítico que mede o humor do mercado brasileiro a partir de dados objetivos e comportamentais. Ele combina métricas financeiras, variações de ativos, volume de negociação e análise de sentimento digital para gerar uma leitura diária do mercado. O resultado é classificado em cinco categorias de sentimento: Medo Extremo, Medo, Neutro, Ganância e Ganância Extrema.
             </div>
             <div class="gauge-box">
                 <div class="gauge-label">Emoção que está impulsionando o mercado agora:</div>
@@ -551,37 +551,37 @@
             <h3>Indicadores que compõem o índice</h3>
             <div class="indicadores-list">
                 <div class="indicador-card" onclick="scrollToIndicador('A')">
-                    <div class="indicador-nome">Indicador Risco de Crédito</div>
+                    <div class="indicador-nome">Risco de Crédito</div>
                     <span class="indicador-sentimento-indice" id="sentimentoA-card">--</span>
                     <div class="indicador-valor" id="valorA">--</div>
                     <div class="indicador-var" id="varA">--</div>
                 </div>
                 <div class="indicador-card" onclick="scrollToIndicador('B')">
-                    <div class="indicador-nome">Indicador B</div>
+                    <div class="indicador-nome">Retorno do Mercado</div>
                     <span class="indicador-sentimento-indice" id="sentimentoB-card">--</span>
                     <div class="indicador-valor" id="valorB">--</div>
                     <div class="indicador-var" id="varB">--</div>
                 </div>
                 <div class="indicador-card" onclick="scrollToIndicador('C')">
-                    <div class="indicador-nome">Indicador C</div>
+                    <div class="indicador-nome">Volatilidade do Mercado</div>
                     <span class="indicador-sentimento-indice" id="sentimentoC-card">--</span>
                     <div class="indicador-valor" id="valorC">--</div>
                     <div class="indicador-var" id="varC">--</div>
                 </div>
                 <div class="indicador-card" onclick="scrollToIndicador('D')">
-                    <div class="indicador-nome">Indicador D</div>
+                    <div class="indicador-nome">Atividade do Mercado</div>
                     <span class="indicador-sentimento-indice" id="sentimentoD-card">--</span>
                     <div class="indicador-valor" id="valorD">--</div>
                     <div class="indicador-var" id="varD">--</div>
                 </div>
                 <div class="indicador-card" onclick="scrollToIndicador('E')">
-                    <div class="indicador-nome">Indicador E</div>
+                    <div class="indicador-nome">Confiança do Mercado Local</div>
                     <span class="indicador-sentimento-indice" id="sentimentoE-card">--</span>
                     <div class="indicador-valor" id="valorE">--</div>
                     <div class="indicador-var" id="varE">--</div>
                 </div>
                 <div class="indicador-card" onclick="scrollToIndicador('F')">
-                    <div class="indicador-nome">Indicador F</div>
+                    <div class="indicador-nome">Sentimento da Mídia</div>
                     <span class="indicador-sentimento-indice" id="sentimentoF-card">--</span>
                     <div class="indicador-valor" id="valorF">--</div>
                     <div class="indicador-var" id="varF">--</div>
@@ -606,12 +606,12 @@
             <canvas id="graficoIndice"></canvas>
         </div>
         <div class="main-card indicador-section" id="indicadorA">
-            <h3>Indicador Risco de Crédito</h3>
+            <h3>Indicador de Risco de Crédito</h3>
             <div class="indicador-detalhe">
                 <div class="indicador-info">
                     <div class="indicador-valor-destaque">Valor atual: <span id="valorA-detalhe">--</span></div>
                     <div class="indicador-sentimento"><span id="sentimentoA">--</span></div>
-                    <div class="indicador-descricao">Este indicador avalia o comportamento do mercado em relação ao fator A, refletindo oscilações de medo ou ganância conforme o contexto econômico.</div>
+                    <div class="indicador-descricao">Este indicador avalia o apetite por risco dos investidores ao combinar oscilações recentes de preços com o desempenho do mercado.</div>
                     <button class="indicador-btn" onclick="saibaMais('A')">Saiba mais</button>
                 </div>
                 <div class="indicador-grafico">
@@ -620,12 +620,12 @@
             </div>
         </div>
         <div class="main-card indicador-section" id="indicadorB">
-            <h3>Indicador B</h3>
+            <h3>Indicador de Retorno do Mercado</h3>
             <div class="indicador-detalhe">
                 <div class="indicador-info">
                     <div class="indicador-valor-destaque">Valor atual: <span id="valorB-detalhe">--</span></div>
                     <div class="indicador-sentimento"><span id="sentimentoB">--</span></div>
-                    <div class="indicador-descricao">Este indicador mede a influência do fator B sobre o sentimento dos investidores, sendo um dos componentes do índice geral.</div>
+                    <div class="indicador-descricao">Este indicador resume como o desempenho recente do Ibovespa se compara ao seu padrão histórico, considerando também a força do volume de negociações.</div>
                     <button class="indicador-btn" onclick="saibaMais('B')">Saiba mais</button>
                 </div>
                 <div class="indicador-grafico">
@@ -634,12 +634,12 @@
             </div>
         </div>
         <div class="main-card indicador-section" id="indicadorC">
-            <h3>Indicador C</h3>
+            <h3>Indicador de Volatilidade do Mercado</h3>
             <div class="indicador-detalhe">
                 <div class="indicador-info">
                     <div class="indicador-valor-destaque">Valor atual: <span id="valorC-detalhe">--</span></div>
                     <div class="indicador-sentimento"><span id="sentimentoC">--</span></div>
-                    <div class="indicador-descricao">O Indicador C reflete tendências de curto prazo, auxiliando na identificação de mudanças rápidas no humor do mercado.</div>
+                    <div class="indicador-descricao">Este indicador mede o nível de nervosismo do mercado ao observar o quanto os preços têm oscilado recentemente no Brasil (Ibovespa) e como essas oscilações se alinham ao humor externo (IVVB11).</div>
                     <button class="indicador-btn" onclick="saibaMais('C')">Saiba mais</button>
                 </div>
                 <div class="indicador-grafico">
@@ -648,12 +648,12 @@
             </div>
         </div>
         <div class="main-card indicador-section" id="indicadorD">
-            <h3>Indicador D</h3>
+            <h3>Indicador de Atividade do Mercado</h3>
             <div class="indicador-detalhe">
                 <div class="indicador-info">
                     <div class="indicador-valor-destaque">Valor atual: <span id="valorD-detalhe">--</span></div>
                     <div class="indicador-sentimento"><span id="sentimentoD">--</span></div>
-                    <div class="indicador-descricao">Este indicador analisa o volume de negociações e sua relação com o sentimento predominante no mercado.</div>
+                    <div class="indicador-descricao">Este indicador mede a intensidade diária do mercado, avaliando se o dia foi fraco, normal ou forte em relação ao ritmo recente. Considera que retornos sem volume têm menos qualidade, enquanto movimentos acompanhados de volume elevado são mais representativos.</div>
                     <button class="indicador-btn" onclick="saibaMais('D')">Saiba mais</button>
                 </div>
                 <div class="indicador-grafico">
@@ -662,12 +662,12 @@
             </div>
         </div>
         <div class="main-card indicador-section" id="indicadorE">
-            <h3>Indicador E</h3>
+            <h3>Indicador de Confiança do Mercado Local</h3>
             <div class="indicador-detalhe">
                 <div class="indicador-info">
                     <div class="indicador-valor-destaque">Valor atual: <span id="valorE-detalhe">--</span></div>
                     <div class="indicador-sentimento"><span id="sentimentoE">--</span></div>
-                    <div class="indicador-descricao">O Indicador E considera fatores externos e notícias que impactam diretamente o sentimento dos investidores.</div>
+                    <div class="indicador-descricao">Este indicador mede a confiança do mercado brasileiro por meio do IFIX, avaliando se o desempenho diário foi melhor, igual ou pior em relação ao ritmo recente.</div>
                     <button class="indicador-btn" onclick="saibaMais('E')">Saiba mais</button>
                 </div>
                 <div class="indicador-grafico">
@@ -676,12 +676,12 @@
             </div>
         </div>
         <div class="main-card indicador-section" id="indicadorF">
-            <h3>Indicador F</h3>
+            <h3>Indicador de Sentimento da Mídia</h3>
             <div class="indicador-detalhe">
                 <div class="indicador-info">
                     <div class="indicador-valor-destaque">Valor atual: <span id="valorF-detalhe">--</span></div>
                     <div class="indicador-sentimento"><span id="sentimentoF">--</span></div>
-                    <div class="indicador-descricao">Este indicador avalia o apetite ao risco dos investidores, sendo fundamental para o cálculo do índice.</div>
+                    <div class="indicador-descricao">Este indicador capta o “humor” das notícias econômicas do dia, analisando o tom dos títulos (positivo, negativo ou neutro) para resumir o clima informacional predominante.</div>
                     <button class="indicador-btn" onclick="saibaMais('F')">Saiba mais</button>
                 </div>
                 <div class="indicador-grafico">
@@ -705,12 +705,12 @@
         }
         // Busca dados do índice principal via API
         async function fetchIndice() {
-            const resp = await fetch('http://localhost:8000/api/indice');
+            const resp = await fetch('https://yeqfdw4z31.execute-api.us-east-1.amazonaws.com/ismb1/dados?indice=ismb');
             return await resp.json();
         }
         // Busca dados de um indicador via API
         async function fetchIndicador(nome) {
-            const resp = await fetch(`http://localhost:8000/api/indicador/${nome}`);
+            const resp = await fetch(`https://yeqfdw4z31.execute-api.us-east-1.amazonaws.com/ismb1/dados?indice=${nome}`);
             return await resp.json();
         }
         // Atualiza o gauge e gráfico principal com dados reais
@@ -812,9 +812,9 @@
             // Atualiza sentimento no card
             const sentCard = document.getElementById('sentimento'+nome+'-card');
             if(sentCard) sentCard.innerText = sentimento;
-            // Atualiza variação e cor
+            // Atualiza variação e cor (arredondado para 1 casa decimal)
             const varElem = document.getElementById(varId);
-            varElem.innerText = (variacao>=0?'+':'')+variacao;
+            varElem.innerText = (variacao>=0?'+':'')+variacao.toFixed(1);
             varElem.style.color = variacao>=0 ? '#43a047' : '#e53935';
             // Gráfico
             new Chart(document.getElementById(canvasId).getContext('2d'), {
@@ -874,11 +874,11 @@
         async function saibaMais(letra) {
             const nomes = {
                 'A': 'Indicador de Risco de Crédito',
-                'B': 'Indicador B',
-                'C': 'Indicador C',
-                'D': 'Indicador D',
-                'E': 'Indicador E',
-                'F': 'Indicador F'
+                'B': 'Indicador de Retorno do Mercado',
+                'C': 'Indicador de Volatilidade do Mercado',
+                'D': 'Indicador de Atividade do Mercado',
+                'E': 'Indicador de Confiança do Mercado Local',
+                'F': 'Indicador de Sentimento da Mídia'
             };
             const modal = document.getElementById('modalSaibaMais');
             // Busca HTML estático gerado em docs/indicadorX.html

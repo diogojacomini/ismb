@@ -1,6 +1,6 @@
 # Indicador de Risco de Crédito
 
-Este indicador traduz o equilíbrio entre medo e confiança do mercado. Ao unir o comportamento recente da oscilação dos preços com o desempenho observado, ele sintetiza o “apetite por risco” do dia.
+Avalia o apetite por risco dos investidores ao combinar oscilações recentes de preços com o desempenho do mercado.
 
 ## O que ele nos mostra
 - Próximo de 0: predomínio de cautela e aversão ao risco.
@@ -12,7 +12,7 @@ Este indicador traduz o equilíbrio entre medo e confiança do mercado. Ao unir 
 - Oferece um termômetro simples para comunicar condições de mercado.
 - Complementa a leitura de preço com um sinal de “sentimento” agregado.
 
-## Como é calculado (resumo)
+## Como é calculado
 O indicador combina o retorno diário do Ibovespa e sua volatilidade recente:
 
 - Retorno do dia: log_ret_t = ln(close_t / close_{t-1})
