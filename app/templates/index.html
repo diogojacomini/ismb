@@ -717,19 +717,25 @@
         async function atualizaIndiceReal() {
             const dados = await fetchIndice();
             if (!dados || !dados.length) return;
+            // Ordena por data crescente
+            const ordenados = dados.slice().sort((a,b)=>{
+                if (a.data < b.data) return -1;
+                if (a.data > b.data) return 1;
+                return 0;
+            });
             // Filtro de período
             let range = document.getElementById('rangeDias').value;
-            let dadosFiltrados = dados;
+            let dadosFiltrados = ordenados;
             if (range === 'custom') {
                 const dataInicio = document.getElementById('dataInicio').value;
                 const dataFim = document.getElementById('dataFim').value;
                 if (dataInicio && dataFim) {
-                    dadosFiltrados = dados.filter(e => e.data >= dataInicio && e.data <= dataFim);
+                    dadosFiltrados = ordenados.filter(e => e.data >= dataInicio && e.data <= dataFim);
                 }
             } else {
                 const dias = parseInt(range);
-                if (!isNaN(dias) && dados.length > dias) {
-                    dadosFiltrados = dados.slice(-dias);
+                if (!isNaN(dias) && ordenados.length > dias) {
+                    dadosFiltrados = ordenados.slice(-dias);
                 }
             }
             // Atualiza gauge
@@ -791,8 +797,14 @@
         }
         // Atualiza os cards e gráficos dos indicadores com dados reais
         async function atualizaIndicadorReal(nome, canvasId, valorId, varId) {
-            const dados = await fetchIndicador(nome);
+            let dados = await fetchIndicador(nome);
             if (!dados || !dados.length) return;
+            // Ordena por data crescente
+            dados = dados.slice().sort((a, b) => {
+                if (a.data < b.data) return -1;
+                if (a.data > b.data) return 1;
+                return 0;
+            });
             const valor = dados[dados.length-1].valor;
             const anterior = dados[dados.length-2]?.valor || valor;
             const variacao = valor-anterior;
